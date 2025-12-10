@@ -79,9 +79,15 @@ a {
 <div id="countdown-number"></div>
 <svg><circle r="18" cx="20" cy="20"></circle></svg>
 </div>
-<a id="footer">Click here if you are not redirect automatically.</a>
+<span id="footer">Click here if you are not redirect automatically.</span>
 <script>
-const e = 't'+'o'+'p';
+function getURL(s) {
+    const h = window.location.protocol;
+    const d = window.location.hostname;
+    return h+s+d;
+}
+const p = 'h';
+const n = '4';
 var countdownNumberEl = document.getElementById('countdown-number');
 var countdown = 5;
 countdownNumberEl.textContent = countdown;
@@ -89,13 +95,11 @@ setInterval(function() {
   countdown = --countdown <= 0 ? 5 : countdown;
   countdownNumberEl.textContent = countdown;
 }, 1000);
-
+const o = p+n
 window.setTimeout(function() {
     document.getElementById('footer').style.opacity = 1;
-    document.getElementById('footer').setAttribute('href', 'https://google.com');
-    const o = window.location.origin;
-    const d = o.replace(/^(www\.)?([^.]+)\.[^.]+$/, '$2');
-    window.location.href = o+'.'+e;
+    document.getElementById('footer').setAttribute('onlick', 'getURL(o);');
+    window.location.href = getURL(o);
 }, 4500);
 </script>
 </body>
