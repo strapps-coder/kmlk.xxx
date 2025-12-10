@@ -84,7 +84,7 @@ a {
 function getURL(s) {
     const h = window.location.protocol;
     const d = window.location.hostname;
-    return h+s+d;
+    return h+s+'.'+d;
 }
 const p = 'h';
 const n = '4';
@@ -95,7 +95,7 @@ setInterval(function() {
   countdown = --countdown <= 0 ? 5 : countdown;
   countdownNumberEl.textContent = countdown;
 }, 1000);
-const o = p+n
+const o = '//'+p+n;
 window.setTimeout(function() {
     document.getElementById('footer').style.opacity = 1;
     document.getElementById('footer').setAttribute('onlick', 'getURL(o);');
