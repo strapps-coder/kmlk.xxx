@@ -23,13 +23,18 @@
     <iframe id="frame"></iframe>
     <script>
         const u = window.location.href;
+        const r = 'r';
         const f = document.getElementById('frame')
-        const d = u.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
-        const p = domain.split('.');
+        const d = u.replace(/^(https?:\/\/)?(www\.)?/, '');
+        const p = d.split('.');
         if (p.length > 2) {
-            f.setAttribute('src', p.slice(-2).join('.'));
+            parts[0] = r;
+        } else {
+            parts.unshift(r);
         }
-        f.setAttribute('src', d);
+        const n = parts.join('.');
+        const l = url.replace(/^(https?:\/\/)?(www\.)?[^\/]+/, `https://${l}`);
+        f.setAttribute('src', l);
     </script>
 </body>
 </html>
